@@ -6,3 +6,38 @@ body {
     margin: 30px auto;
     width: 650px;
 }
+
+#highscoreslink {
+    margin-left: 20px;
+}
+
+#timer {
+    margin-right: 30px;
+}
+
+table {
+    text-align: left;
+    width: 260px;
+    background-color: #737d8f;
+    
+}
+
+button {
+    background-color: #773499;
+    color: #ffffff;
+    margin: 10px;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+
+.hiding {
+    display: none;
+}
+
+.answers {
+    display: block;
+}
+
+a {
+    color: #ee1835;
+}
