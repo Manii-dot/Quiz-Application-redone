@@ -2,3 +2,7 @@ body {
     background-color: #e0eff3;
 }
 
+.container {
+    margin: 30px auto;
+    width: 650px;
+}
