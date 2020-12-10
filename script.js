@@ -52,7 +52,7 @@ var questions = [
 ]
 
 //Start the quiz 
-function quizStart() {
+function startQuiz() {
     beginCard.setAttribute("class", "hiding");
     theQuestionDiv.removeAttribute("class");
     highScoresTab.setAttribute("class", "hiding");
@@ -66,7 +66,7 @@ function countdownTime() {
         timeLeft--;
         timerDisplay.textContent = "Time: " + timeLeft;
 
-        if (timeLeft <= 0 && qI !== theQuestion.length) {
+        if (timeLeft <= 0 && qI !== questions.length) {
             clearInterval(intervalSet);
             quizOver();
         }
@@ -76,9 +76,9 @@ function countdownTime() {
 
 // Start Next question
 function nextQuestion() {
-    var actualQuestion = theQuestion[questionIndex];
-    var showQuestions = document.getElementById("QT"); // Display question
-    showQuestions.textContent = actualQuestion.theQuestion;
+    var actualQuestion = questions[questionIndex];
+    var showQuestions = document.getElementById("QT"); 
+    showQuestions.textContent = actualQuestion.questions;
 
     theAnswers.innerHTML = "";
 
@@ -103,7 +103,7 @@ function inspectAnswer() {
         alert("That was Correct!");
     }
     qI++;
-    if (qI == theQuestion.length) {
+    if (qI == questions.length) {
         quizOver();
     } else {
         nextQuestion();
@@ -176,7 +176,7 @@ function goBack() {
 
 // All event listeners
 
-beginButton.addEventListener("click", quizStart);
+beginButton.addEventListener("click", startQuiz);
 
 clearScore.addEventListener("click", clearStorage);
 
