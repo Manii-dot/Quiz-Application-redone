@@ -16,10 +16,39 @@ var returnButton = document.getElementById("returnBtn");
 var bestScoresCache = JSON.parse(localStorage.getItem("bestScoreDisplay")) || [];
 
 //Countdown
+var timeLeft = 60;
 
 
 //Question and answers Array
+var qI = 0;
+var bestScoreDisplay = {name: "", score: 0};
 
+var questions = [
+    //Q1
+    {
+        question: "Why so JavaScript and Java have similar name?",
+        answers: ["They both originated on the island of Java", "JavaScript's syntax is loosely based on Java's", "Both A and B", "None of the above"],
+        correctAnswer: "JavaScript's syntax is loosely based on Java's",
+    },
+    // Q2
+    {
+        question: "Which type of JavaScript language is ___",
+        answers: ["Object-Oriented", "Object-Based", "Assembly-languageHigh-level"],
+        correctAnswer: "Object-Based",
+
+    },
+    //Q3
+    {
+        question: "The function and var are known as:",
+        answers: ["Keywords", "Data types", "Declaration statements", "Prototypes"],
+        correctAnswer: "Declaration statements"
+    },
+    // Q4
+    {
+        question: "Which of the following number object function returns the value of the number?", 
+        answers: ["toString", "valueOf", "toLocaleString", "toPrecision"],
+        correctAnswer: "valueOf",
+    },
 
 //Start the quiz 
 
