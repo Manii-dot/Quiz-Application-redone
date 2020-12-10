@@ -77,17 +77,17 @@ function countdownTime() {
 // Start Next question
 function nextQuestion() {
     var actualQuestion = questions[qI];
-    var showQuestions = document.getElementById("QT"); 
+    var showQuestions = document.getElementById("quest"); 
     showQuestions.textContent = actualQuestion.questions;
 
     theAnswers.innerHTML = "";
 
-    actualQuestion.answers.forEach(function (allAnswer) {
+    actualQuestion.answers.forEach(function (answer) {
         var answerbtn = document.createElement("button");
         answerbtn.setAttribute("class", "option");
         answerbtn.setAttribute("value", answer);
         answerbtn.textContent = answer;
-        answerbtn.onclick = questionCheck;
+        answerbtn.onclick = inspectAnswer;
         theAnswers.appendChild(answerbtn);
     })
 }
