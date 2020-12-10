@@ -14,12 +14,12 @@
 
 <div class="container">
     <!-- the starter screen -->
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
+    <div class="card">
+        
           <h5 class="card-title">Code-Quiz</h5>
           <p class="card-text">I dare you to be better if you have what it takes to be the high score!</p>
-          <button class="begin" id="begin">Begin</button>
-        </div>
+          <button id="begin">Begin</button>
+    
     </div>
 
      <!-- The Question  -->
@@ -48,8 +48,11 @@
      <!-- High Scores -->
      <div class="hiding" id="highScores">
         <h2>High Scores</h2>
+        <details>
+            <summary>Scores</summary>
         <table id="scoretable">
         </table>
+        </details>
         <hr />
         <button id="returnBtn">Return</button>
         <button id="clear">Clear</button>

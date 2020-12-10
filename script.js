@@ -130,11 +130,11 @@ function quizOver() {
 
         var yourScore = {
             initials: yourInitials,
-            score: score
+            endingScore: score
         };
 
         ArchiveBestScores.push(yourScore);
-        ArchiveBestScores.sort(compare);
+        ArchiveBestScores.sort(differentiate);
         localStorage.setItem("BestScoreDisplay", JSON.stringify(ArchiveBestScores));
 
         ending.setAttribute("class", "hiding");
@@ -142,7 +142,38 @@ function quizOver() {
 
 
 // High score to lowest one
+for (var i = 0; i < ArchiveBestScores.length; i++) { 
+    var  dataRow = document.createElement("tr"); 
+    var dataCell = document.createElement("td"); 
+    dataCell.textContent = (i + 1) + ". " + ArchiveBestScores[i].initials + " " + ArchiveBestScores[i].endingScore; 
+    row.appendChild(dataCell);
+    highScoreTable.appendChild(dataRow);
+}
+
+})
+}
+
+function differentiate(user1, user2) { 
+return user2.endingScore - user1.endingScore;
+}
+
+function clearStorage() { 
+localStorage.clear();
+}
+
+function theScores() {
+    beginCard.setAttribute("class", "hiding");
+    theQuestionDiv.setAttribute("class", "hiding");
+    lastPart.setAttribute("class", "hiding");
+    highScoresTab.removeAttribute("class");
+    timerDisplay.setAttribute("class", "hiding");
+}
+
+function goBack() {
+    location.reload();
+}
 
 
 // All event listeners
 
+beginButton.addEventListener("click", quizStart);
