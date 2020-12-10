@@ -177,3 +177,9 @@ function goBack() {
 // All event listeners
 
 beginButton.addEventListener("click", quizStart);
+
+clearScore.addEventListener("click", clearStorage);
+
+theScoresLink.addEventListener("click", theScores);
+
+returnButton.addEventListener("click", goBack);
