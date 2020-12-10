@@ -93,10 +93,52 @@ function nextQuestion() {
 }
 
 //Is it the right the answer
+function inspectAnswer() {
+    console.log(this.value);
+
+    if (this.value !== questions[qI].correctAnswer) {
+        timeLeft -= 10;
+        alert("Wrong Answer!");
+    } else {
+        alert("That was Correct!");
+    }
+    qI++;
+    if (qI == theQuestion.length) {
+        quizOver();
+    } else {
+        nextQuestion();
+    }
+}
 
 
+//Quiz complete/Time is at zero
+function quizOver() {
 
-//Quiz completed/Time is at zero
+    var endResult = timeLeft;
+
+    theQuestionDiv.setAttribute("class", "hiding");
+    lastPart.removeAttribute("class");
+    timerDisplay.setAttribute("class", "hiding");
+
+    quizScore.textContent = score;
+
+    submiting.addEventListener("click", function () {
+
+        yourInitials = document.querySelector("#initials").value;
+        console.log(yourInitials);
+
+
+        var yourScore = {
+            initials: yourInitials,
+            score: score
+        };
+
+        ArchiveBestScores.push(yourScore);
+        ArchiveBestScores.sort(compare);
+        localStorage.setItem("BestScoreDisplay", JSON.stringify(ArchiveBestScores));
+
+        ending.setAttribute("class", "hiding");
+        highScoresTab.removeAttribute("class");
 
 
 // High score to lowest one
