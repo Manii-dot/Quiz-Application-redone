@@ -48,12 +48,30 @@ var questions = [
         question: "Which of the following number object function returns the value of the number?", 
         answers: ["toString", "valueOf", "toLocaleString", "toPrecision"],
         correctAnswer: "valueOf",
-    },
+    }
+]
 
 //Start the quiz 
+function quizStart() {
+    beginCard.setAttribute("class", "hiding");
+    theQuestionDiv.removeAttribute("class");
+    highScoresTab.setAttribute("class", "hiding");
+    countdown();
+    nextQ();
+}
 
+//Timer countdown start
+function countdownTime() {
+    var intervalSet = setInterval(function () {
+        timeLeft--;
+        timerDisplay.textContent = "Time: " + timeLeft;
 
-//Timer start
+        if (timeLeft <= 0 && qI !== theQuestion.length) {
+            clearInterval(intervalSet);
+            quizOver();
+        }
+    }, 1000);
+};
 
 
 //Next question
