@@ -56,8 +56,8 @@ function startQuiz() {
     beginCard.setAttribute("class", "hiding");
     theQuestionDiv.removeAttribute("class");
     highScoresTab.setAttribute("class", "hiding");
-    countdown();
-    nextQ();
+    countdownTime();
+    nextQuestion();
 }
 
 //Timer countdown start
@@ -76,7 +76,7 @@ function countdownTime() {
 
 // Start Next question
 function nextQuestion() {
-    var actualQuestion = questions[questionIndex];
+    var actualQuestion = questions[qI];
     var showQuestions = document.getElementById("QT"); 
     showQuestions.textContent = actualQuestion.questions;
 
