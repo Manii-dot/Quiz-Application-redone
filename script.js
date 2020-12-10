@@ -74,8 +74,23 @@ function countdownTime() {
 };
 
 
-//Next question
+// Start Next question
+function nextQuestion() {
+    var actualQuestion = theQuestion[questionIndex];
+    var showQuestions = document.getElementById("QT"); // Display question
+    showQuestions.textContent = actualQuestion.theQuestion;
 
+    theAnswers.innerHTML = "";
+
+    actualQuestion.answers.forEach(function (allAnswer) {
+        var answerbtn = document.createElement("button");
+        answerbtn.setAttribute("class", "option");
+        answerbtn.setAttribute("value", answer);
+        answerbtn.textContent = answer;
+        answerbtn.onclick = questionCheck;
+        theAnswers.appendChild(answerbtn);
+    })
+}
 
 //Is it the right the answer
 
