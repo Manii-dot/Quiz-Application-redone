@@ -3,7 +3,7 @@ var beginButton = document.getElementById("begin");
 var timerDisplay = document.getElementById("timer");
 var beginCard = document.getElementById("card");
 var questionEl = document.getElementById("allQuestions");
-var lastPart = document.getElementById("lastPart");
+var lastDiv = document.getElementById("lastPart");
 var theAnswers = document.getElementById("answers");
 var quizScore = document.getElementById("endScore");
 var submiting = document.getElementById("submit");
@@ -117,7 +117,7 @@ function quizOver() {
     var endScore = timeLeft;
 
     questionEl.setAttribute("class", "hiding");
-    lastPart.removeAttribute("class");
+    lastDiv.removeAttribute("class");
     timerDisplay.setAttribute("class", "hiding");
 
     quizScore.textContent = endScore;
@@ -133,21 +133,21 @@ function quizOver() {
             score: endScore
         };
 
-        ArchiveBestScores.push(yourScore);
-        ArchiveBestScores.sort(differentiate);
-        localStorage.setItem("bestScoreDisplay", JSON.stringify(ArchiveBestScores));
+        bestScoresCache.push(yourScore);
+        bestScoresCache.sort(differentiate);
+        localStorage.setItem("bestScoreDisplay", JSON.stringify(bestScoresCache));
 
-        ending.setAttribute("class", "hiding");
+        lastDiv.setAttribute("class", "hiding");
         highScoresTab.removeAttribute("class");
 
 
 // High score to lowest one
-for (var i = 0; i < ArchiveBestScores.length; i++) { 
+for (var i = 0; i < bestScoresCache.length; i++) { 
     var  dataRow = document.createElement("tr"); 
     var dataCell = document.createElement("td"); 
-    dataCell.textContent = (i + 1) + ". " + ArchiveBestScores[i].initials + " " + ArchiveBestScores[i].score; 
-    row.appendChild(dataCell);
-    highScoreTable.appendChild(dataRow);
+    dataCell.textContent = (i + 1) + ". " + bestScoresCache[i].initials + " " + bestScoresCache[i].score; 
+    dataRow.appendChild(dataCell);
+    scoreTab.appendChild(dataRow);
 }
 
 })
@@ -164,7 +164,7 @@ localStorage.clear();
 function theScores() {
     beginCard.setAttribute("class", "hiding");
     questionEl.setAttribute("class", "hiding");
-    lastPart.setAttribute("class", "hiding");
+    lastDiv.setAttribute("class", "hiding");
     highScoresTab.removeAttribute("class");
     timerDisplay.setAttribute("class", "hiding");
 }

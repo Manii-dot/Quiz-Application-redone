@@ -5,14 +5,14 @@ body {
 .card {
     background-color: rgb(69, 155, 194);
     width: 20rem;
-    margin: 10px;
+    margin: 0px;
     padding: 10px 20px;
     border-radius: 20px;
 }
 
 .container {
-    margin: 30px auto;
-    width: 650px;
+    margin: 150px auto;
+    width: 700px;
 }
 
 #highscoreslink {
@@ -53,6 +53,7 @@ button {
     border-radius: 20px;
     padding: 10px 20px;
     height: 500px;
+    
 }
 
 #QUESTIONS {
