@@ -48,15 +48,14 @@ button {
     display: none;
 }
 
-#theQuestions {
+#allQuestions {
     background-color: rgb(69, 155, 194);
     border-radius: 20px;
     padding: 10px 20px;
     height: 500px;
 }
 
-#theQuestions h2 {
-    padding: 100px;
+#QUESTIONS {
     color: #e0eff3;
     border-radius: 20px;
 }

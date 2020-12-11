@@ -2,7 +2,7 @@
 var beginButton = document.getElementById("begin");
 var timerDisplay = document.getElementById("timer");
 var beginCard = document.getElementById("card");
-var theQuestionDiv = document.getElementById("theQuestions");
+var questionEl = document.getElementById("allQuestions");
 var lastPart = document.getElementById("lastPart");
 var theAnswers = document.getElementById("answers");
 var quizScore = document.getElementById("endScore");
@@ -23,7 +23,7 @@ var timeLeft = 60;
 var qI = 0;
 var bestScoreDisplay = {name: "", score: 0};
 
-var questions = [
+var allQuestions = [
     //Q1
     {
         question: "Why so JavaScript and Java have similar name?",
@@ -32,8 +32,8 @@ var questions = [
     },
     // Q2
     {
-        question: "Which type of JavaScript language is ___",
-        answers: ["Object-Oriented", "Object-Based", "Assembly-languageHigh-level"],
+        question: "What type of language is JavaScript?",
+        answers: ["Object-Oriented", "Object-Based", "Assembly-languageHigh-level", "None of the above!"],
         correctAnswer: "Object-Based",
 
     },
@@ -54,7 +54,7 @@ var questions = [
 //Start the quiz 
 function startQuiz() {
     beginCard.setAttribute("class", "hiding");
-    theQuestionDiv.removeAttribute("class");
+    questionEl.removeAttribute("class");
     highScoresTab.setAttribute("class", "hiding");
     countdownTime();
     nextQuestion();
@@ -66,7 +66,7 @@ function countdownTime() {
         timeLeft--;
         timerDisplay.textContent = "Time: " + timeLeft;
 
-        if (timeLeft <= 0 && qI !== questions.length) {
+        if (timeLeft <= 0 && qI !== allQuestions.length) {
             clearInterval(intervalSet);
             quizOver();
         }
@@ -76,9 +76,9 @@ function countdownTime() {
 
 // Start Next question
 function nextQuestion() {
-    var actualQuestion = questions[qI];
-    var showQuestions = document.getElementById("quest"); 
-    showQuestions.textContent = actualQuestion.questions;
+    var actualQuestion = allQuestions[qI];
+    var showQuestions = document.getElementById("QUESTIONS"); 
+    showQuestions.textContent = actualQuestion.question;
 
     theAnswers.innerHTML = "";
 
@@ -96,14 +96,14 @@ function nextQuestion() {
 function inspectAnswer() {
     console.log(this.value);
 
-    if (this.value !== questions[qI].correctAnswer) {
+    if (this.value !== allQuestions[qI].correctAnswer) {
         timeLeft -= 10;
         alert("Wrong Answer!");
     } else {
         alert("That was Correct!");
     }
     qI++;
-    if (qI == questions.length) {
+    if (qI == allQuestions.length) {
         quizOver();
     } else {
         nextQuestion();
@@ -116,7 +116,7 @@ function quizOver() {
 
     var endScore = timeLeft;
 
-    theQuestionDiv.setAttribute("class", "hiding");
+    questionEl.setAttribute("class", "hiding");
     lastPart.removeAttribute("class");
     timerDisplay.setAttribute("class", "hiding");
 
@@ -163,7 +163,7 @@ localStorage.clear();
 
 function theScores() {
     beginCard.setAttribute("class", "hiding");
-    theQuestionDiv.setAttribute("class", "hiding");
+    questionEl.setAttribute("class", "hiding");
     lastPart.setAttribute("class", "hiding");
     highScoresTab.removeAttribute("class");
     timerDisplay.setAttribute("class", "hiding");
