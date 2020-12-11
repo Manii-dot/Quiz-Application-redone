@@ -2,14 +2,14 @@
 var beginButton = document.getElementById("begin");
 var timerDisplay = document.getElementById("timer");
 var beginCard = document.getElementById("card");
-var theQuestionDiv = document.getElementById("theQuestion");
+var theQuestionDiv = document.getElementById("theQuestions");
 var lastPart = document.getElementById("lastPart");
 var theAnswers = document.getElementById("answers");
-var quizScore = document.getElementById("score");
+var quizScore = document.getElementById("endScore");
 var submiting = document.getElementById("submit");
 var scoreTab = document.getElementById("scoretable");
 var highScoresTab = document.getElementById("highScores");
-var clearScore = document.getElementById("clear");
+var clearScore = document.getElementById("clear-score");
 var theScoresLink = document.getElementById("scoreslink");
 var returnButton = document.getElementById("returnBtn");
 
@@ -114,13 +114,13 @@ function inspectAnswer() {
 //Quiz complete/Time is at zero
 function quizOver() {
 
-    var endResult = timeLeft;
+    var endScore = timeLeft;
 
     theQuestionDiv.setAttribute("class", "hiding");
     lastPart.removeAttribute("class");
     timerDisplay.setAttribute("class", "hiding");
 
-    quizScore.textContent = score;
+    quizScore.textContent = endScore;
 
     submiting.addEventListener("click", function () {
 
@@ -130,12 +130,12 @@ function quizOver() {
 
         var yourScore = {
             initials: yourInitials,
-            endingScore: score
+            score: endScore
         };
 
         ArchiveBestScores.push(yourScore);
         ArchiveBestScores.sort(differentiate);
-        localStorage.setItem("BestScoreDisplay", JSON.stringify(ArchiveBestScores));
+        localStorage.setItem("bestScoreDisplay", JSON.stringify(ArchiveBestScores));
 
         ending.setAttribute("class", "hiding");
         highScoresTab.removeAttribute("class");
@@ -145,7 +145,7 @@ function quizOver() {
 for (var i = 0; i < ArchiveBestScores.length; i++) { 
     var  dataRow = document.createElement("tr"); 
     var dataCell = document.createElement("td"); 
-    dataCell.textContent = (i + 1) + ". " + ArchiveBestScores[i].initials + " " + ArchiveBestScores[i].endingScore; 
+    dataCell.textContent = (i + 1) + ". " + ArchiveBestScores[i].initials + " " + ArchiveBestScores[i].score; 
     row.appendChild(dataCell);
     highScoreTable.appendChild(dataRow);
 }
@@ -154,7 +154,7 @@ for (var i = 0; i < ArchiveBestScores.length; i++) {
 }
 
 function differentiate(user1, user2) { 
-return user2.endingScore - user1.endingScore;
+return user2.score - user1.score;
 }
 
 function clearStorage() { 

@@ -38,8 +38,37 @@ button {
     border-radius: 20px;
 }
 
+#lastPart {
+    background-color: rgb(69, 155, 194);
+    border-radius: 20px;
+    padding: 10px 20px;
+}
+
 .hiding {
     display: none;
+}
+
+#theQuestions {
+    background-color: rgb(69, 155, 194);
+    border-radius: 20px;
+    padding: 10px 20px;
+    height: 500px;
+}
+
+#theQuestions h2 {
+    padding: 100px;
+    color: #e0eff3;
+    border-radius: 20px;
+}
+
+#scoreslink {
+    background-color: rgb(69, 155, 194);
+}
+
+#highScores {
+    background-color: rgb(69, 155, 194);
+    border-radius: 20px;
+    padding: 10px 20px;
 }
 
 .answers {
@@ -48,4 +77,13 @@ button {
 
 a {
     color: #edd8db;
+}
+
+td {
+    padding: 10px 15px;
+    border-bottom: 1px solid #707d93;
+}
+
+li {
+    list-style-type: none;
 }
