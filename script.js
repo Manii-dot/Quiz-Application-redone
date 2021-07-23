@@ -1,0 +1,1 @@
+var beginButton = document.getElementById("begin");
