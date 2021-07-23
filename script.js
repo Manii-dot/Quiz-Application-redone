@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-var beginButton = document.getElementById("begin");
-=======
 //DOM var
 var beginButton = document.getElementById("begin");
 var timerDisplay = document.getElementById("timer");
