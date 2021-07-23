@@ -3,40 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <title>Quiz-app</title>
 </head>
 <body>
-    <p class="float-left" id="highscoreslink"><a href="#">Your High Score</a></p>
-    <p class="float-right" id="timer">Time: 75</p>
+
+    <div class="header">
+        <h1>CODE QUIZ!</h1>
+      </div>
+      
+      
+
+    <button class="float-left" id="scoreslink"><a href="#">Your High Score</a></button>
+    <button class="float-right" id="timer">Time: 60</button>
 
 <div class="container">
     <!-- the starter screen -->
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">Code-Quiz</h5>
-          <p class="card-text">I dare you to be better if you have what it takes to be the high score!</p>
-          <button class="begin" id="begin">Begin</button>
-        </div>
+    <div id="card" class="card">
+        
+          <h5>Code-Quiz</h5>
+          <p id="explainer">I dare you to be better if you have what it takes to be the high score!</p>
+          <button id="begin">Begin</button>
+    
     </div>
 
-     <!-- The Question  -->
-     <div class="hiding" id="theQuestion">
-
-        <h2 id="QT"></h2>
+     <!-- The Questions  -->
+     <div class="hiding" id="allQuestions">
+         <hr>
+        <h2 id="QUESTIONS"></h2>
         <div id="answers" class="answers">
-            <hr />
         </div>
     </div>
 
      <!-- Last Part  -->
      <div class="hiding" id="lastPart">
-
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRu5W0fd7DNpMPIzCf3TYtUkceSpHd0hnvE9A&usqp=CAU" alt="yay" >
         <h2 id="finished">Finished!</h2>
 
-        <p>You have scored: <span id="score"></span></p>
+        <p>You have scored: <span id="endScore"></span></p>
 
             <label for="initials">Enter Initials</label>
             <input type="text" id="initials">
@@ -44,19 +50,39 @@
 
         <hr />
     </div>
-
+    
      <!-- High Scores -->
      <div class="hiding" id="highScores">
         <h2>High Scores</h2>
         <table id="scoretable">
         </table>
         <hr />
-        <button id="go-back">Go Back</button>
-        <button id="clear">Clear</button>
+        <button id="returnBtn">Return</button>
+        <button id="clear-score">Clear</button>
     </div>
+    <button onclick="myFunction()">click me for a quick fun :)</button>
+
+    <!-- FUN Bar -->
+    <div class="flip-box">
+        <div class="flip-box-inner">
+          <div class="flip-box-front">
+              <h2>Put Mouse here to see a Magic Trick</h2>
+<div id="snackbar">Start the QUIZ ALREADY FOOL!! And show them who's boss!!!</div>
 </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+<div class="flip-box-back">
+  <h2>HMMMMMM!!!</h2>
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTV4I4t7NCQx2cWYmZ-H8jdkojpWxVWXDNUYw&usqp=CAU" alt="Sweet Dog" width="500" height="500">
+</div>
+</div>
+</div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <p>MANII EDUCATION The Best thing for your time</p>
+      </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

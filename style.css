@@ -1,10 +1,36 @@
 body {
     background-color: #e0eff3;
+    background-image: url("asset/jr-korpa-SjDhVvSMKa4-unsplash.jpg");
+    background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  height: 100%;
+    font-family: Arial;
+    margin: 0;
+    padding: 0
+}
+
+.header {
+    padding: 5px;
+    text-align: center;
+    /* background: rgba(56, 119, 187, 0.141); */
+    color: white;
+    font-size: 20px;
+  }
+
+.card {
+    background-color: rgba(35, 137, 184, 0.522);
+    width: 20rem;
+    margin: 0px;
+    padding: 10px 20px;
+    border-radius: 20px;
+   
 }
 
 .container {
-    margin: 30px auto;
-    width: 650px;
+    margin: 150px auto;
+    width: 700px;
 }
 
 #highscoreslink {
@@ -13,13 +39,13 @@ body {
 
 #timer {
     margin-right: 30px;
+    background-color: rgb(69, 155, 194);
 }
 
 table {
     text-align: left;
     width: 260px;
     background-color: #737d8f;
-    
 }
 
 button {
@@ -28,10 +54,40 @@ button {
     margin: 10px;
     padding: 10px 20px;
     border-radius: 20px;
+    
+}
+
+#lastPart {
+    background-color: rgb(69, 155, 194);
+    border-radius: 20px;
+    padding: 10px 20px;
 }
 
 .hiding {
     display: none;
+}
+
+#allQuestions {
+    background-color: rgb(69, 155, 194);
+    border-radius: 20px;
+    padding: 10px 20px;
+    height: 500px;
+    
+}
+
+#QUESTIONS {
+    color: #e0eff3;
+    border-radius: 20px;
+}
+
+#scoreslink {
+    background-color: rgb(69, 155, 194);
+}
+
+#highScores {
+    background-color: rgb(69, 155, 194);
+    border-radius: 20px;
+    padding: 10px 20px;
 }
 
 .answers {
@@ -39,5 +95,122 @@ button {
 }
 
 a {
-    color: #ee1835;
+    color: #edd8db;
 }
+
+td {
+    padding: 10px 15px;
+    border-bottom: 1px solid #707d93;
+}
+
+li {
+    list-style-type: none;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 70%;
+    /* background: rgba(56, 119, 187, 0.365); */
+    color: white;
+    text-align: center;
+  }
+
+  /* snackbar */
+
+  #snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+  }
+  
+  #snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  }
+  
+  @-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}
+  }
+  
+  @keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }
+
+  /* flipping  */
+
+  .flip-box {
+    background-color: transparent;
+    width: 300px;
+    height: 200px;
+    /* border: 1px solid #f1f1f1; */
+    perspective: 1000px;
+  }
+  
+  .flip-box-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+  .flip-box:hover .flip-box-inner {
+    transform: rotateX(180deg);
+  }
+  
+  .flip-box-front, .flip-box-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  
+  .flip-box-front {
+    background-color:transparent;
+    color: white;
+  }
+  
+  .flip-box-back {
+    background-color: transparent;
+    color: white;
+    transform: rotateX(180deg);
+  }
+
+  /* @media screen and (min-width: 600px) {
+    .header, .footer, .hiding{
+      height: 800px;
+     }
+   }
+
+   @media screen and (min-width: 800px) {
+    .header, .footer, .hiding {
+      height: 900px;
+     }
+   } */
